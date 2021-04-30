@@ -208,9 +208,9 @@ const ErrorMessage = styled.p`
   font-weight: bold;
   font-size: 17px;
   line-height: 23px;
-  color: #224229;
+  color: red;
   border-bottom: 3px solid green;
-}
+
 button{
 width: 232px;
 height: 54px;
@@ -274,15 +274,6 @@ white-space: ${pr => pr.theme.whiteSpace};
 input[type=email], input[type=password]{
     border:none;
   }
-`
-
-const ErrorMessage= styled.p`
-font-family: PT Serif;
-font-style: normal;
-font-weight: normal;
-font-size: 11px;
-line-height: 15px;
-color:red;
 `
 
 export default Login;

@@ -69,7 +69,7 @@ const IndividualPlant = (props) => {
             </div>
 
             <div className='cardInfo'>
-                <h2>{plant.plant_nickname}</h2>
+                <h3>{plant.plant_nickname}</h3>
                 <h5>{plant.plant_scientific_name}</h5>
 
                 <h3>Watering Schedule</h3>
