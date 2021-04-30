@@ -5,6 +5,7 @@ import IndividualPlant from "./IndividualPlant";
 import styled from "styled-components";
 import "../App.css";
 import { axiosWithAuth } from "../auth/axiosWithAuth";
+import NavBar from "./NavBar";
 
 const Container = styled.div`
   display: flex;
@@ -74,6 +75,7 @@ const PlantCollection = () => {
 
   return (
     <div className="plants-container">
+      <NavBar />
       {plants.length === 0 ? (
         <NoPlants />
       ) : (

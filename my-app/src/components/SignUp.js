@@ -4,6 +4,7 @@ import SignUpSchema from "./SignUpSchema";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import SignInNavBar from "./SignInNavBar";
 const initialFormValues = {
   name: "",
   email: "",
@@ -68,6 +69,7 @@ const submitForm = (e) => {
 }
 return (
   <div className="signup">
+    <SignInNavBar />
   <StyledSignUpForm className="signupformcontainer" onSubmit={submitForm}>
     <StyledTitle>Sign Up</StyledTitle>
     <StyledForm>
