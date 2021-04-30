@@ -48,7 +48,7 @@ const NavBar = ({isLoggedIn, userLogout}) => {
       </div>
       <LinksStyle>
         <div>
-          <NavLink exact activeClassName="active" to="/">Home</NavLink>
+          <NavLink exact activeClassName="active" to="/home">Home</NavLink>
         </div>
         <div>
           <NavLink activeClassName="active" to="/login">Login</NavLink>
@@ -68,16 +68,17 @@ const NavBar = ({isLoggedIn, userLogout}) => {
 };
 export default NavBar;
 const NavStyle = styled.nav`
+  background-color: #1d2e05;
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 5rem;
-  background-color: ${pr => pr.theme.primaryColor};
+  
   a,button{
     text-decoration: none;
     padding: 2px 5px;
-    color: navy;
-    font-size: 12px;
+    color: white;
+    font-size: .9rem;
     background: none!important;
     border: none;
     text-transform: uppercase;
@@ -90,12 +91,12 @@ const NavStyle = styled.nav`
     }
   }
   .active{
-    color: ${pr => pr.theme.fontColor};
+    color: white;
 
   }
 `;
 const TitleStyle = styled.p`
-  color: ${pr => pr.theme.fontColor};
+  color: white;
   text-transform: uppercase;
   letter-spacing: 1%;
   font-size: 1.8rem;

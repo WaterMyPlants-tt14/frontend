@@ -1,16 +1,32 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import NavBar from './NavBar';
 
 //Component Import
 import SpeciesCard from './SpeciesCard';
 
 //Styling
+const StyledDiv = styled.div `
+    h2{
+        margin-top: 1rem;
+        margin-left: 4rem;
+        font-family: Amatic SC;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 28px;
+        color: #224229;
+        //border-bottom: 2px solid #224229;
+        text-decoration: underline;
+        
+    }
+`
 const PlantCardContainer = styled.div`
     padding: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
 `
 
 const SpeciesList = () => {
@@ -29,8 +45,9 @@ const SpeciesList = () => {
     }, []);
 
     return (
-        <div>
+        <StyledDiv>
             <div>
+                <NavBar />
                 <h2>Add A Plant</h2>
             </div>
             <PlantCardContainer>
@@ -44,7 +61,7 @@ const SpeciesList = () => {
                     })
                 }
             </PlantCardContainer>
-        </div>
+        </StyledDiv>
     )
 };
 

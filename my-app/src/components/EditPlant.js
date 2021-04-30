@@ -1,71 +1,68 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../auth/axiosWithAuth";
 import styled from "styled-components";
-import { useHistory } from "react-router";
-
 
 const EditPlantContainer = styled.div`
-    width: 275px;
-    height: 100%;
-    padding: 20px;
+  width: 275px;
+  height: 100%;
+  padding: 20px;
 `;
 
 const SubmitChanges = styled.button`
-    width: 200px;
-    height: 44px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background: #548A60;
+  width: 200px;
+  height: 44px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #548a60;
 `;
 const DeletePlant = styled.button`
-    width: 200px;
-    height: 44px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background: #b23a3a;
+  width: 200px;
+  height: 44px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #b23a3a;
 `;
 
 const initialFormValues = {
-
   plant_nickname: "",
   water_schedule: 0,
   notes: "",
   plant_location: "",
   species_id: 0,
-
 };
 //user_plant_id for specific plant
 
 const EditPlant = (plants) => {
-
-  const { plant, abracadabra, setPlants, setTakeMeBack, takeMeBack } = plants;
+  const { plant, abracadabra, setTakeMeBack, takeMeBack } = plants;
   const [formValues, setFormValues] = useState({
     ...initialFormValues,
     user_plant_id: plant.user_plant_id,
   });
 
   const changer = (e) => {
-    setFormValues({...formValues,
-         [e.target.name]: e.target.value});
-};
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
 
 
    const deleter =  (e) => {
     e.preventDefault();
     alert('Reload Page')
 
-  const rightPlant = {user_plant_id: plant.user_plant_id};
-  console.log('plantuserplantid', rightPlant);
 
-  axiosWithAuth()
-  .delete(`/api/userplants`, {data: rightPlant})
-      .then(dundundun => {
-          console.log('deletion success from EditPlant', dundundun);
-          abracadabra();
+    const rightPlant = { user_plant_id: plant.user_plant_id };
+    console.log("plantuserplantid", rightPlant);
+
+    axiosWithAuth()
+      .delete(`/api/userplants`, { data: rightPlant })
+      .then((dundundun) => {
+        console.log("deletion success from EditPlant", dundundun);
+        abracadabra();
       })
-      .catch(err => {
-          console.error('deletion error on EditPlant', err);
+      .catch((err) => {
+        console.error("deletion error on EditPlant", err);
       });
+
 }
 
     const onSubmit = (e) => {
@@ -93,7 +90,10 @@ const EditPlant = (plants) => {
         .catch(err => {
             console.error('error on EditPlant', err);
         });
+
     };
+
+    console.log("plantuserplantid", plant.user_plant_id);
 
 
     return (
