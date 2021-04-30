@@ -205,9 +205,84 @@ const StyledLoginForm = styled.form`
 const ErrorMessage = styled.p`
   font-family: PT Serif;
   font-style: normal;
-  font-weight: normal;
-  font-size: 11px;
-  line-height: 15px;
-  color: red;
-`;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 23px;
+  color: #224229;
+  border-bottom: 3px solid green;
+}
+button{
+width: 232px;
+height: 54px;
+left: 475px;
+top: 476px;
+margin-top: 20px;
+background: #548A60;
+font-family: PT Serif;
+font-style: normal;
+font-weight: bold;
+color: white;
+font-size: 17px;
+line-height: 23px;
+text-align: center;
+text-transform: uppercase;
+}
+& h4{
+width: 500px;
+margin-top: 9px;
+}
+& .btn-login{
+display: flex;
+margin-top: 40px;
+width: 245px;
+height: 16px;
+left: 720px;
+top: 510px;
+font-family: Raleway;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 16px;
+text-align: right;
+color: #B1B7B3;
+}
+& .bottom{
+display: flex;
+justify-content: center;
+}
+& .login{
+background: none;
+border: none;
+padding-bottom: 80px;
+margin-top: 10px;
+font-family: Raleway;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 16px;
+text-align: right;
+color: #B1B7B3;
+&:hover{
+  color: blue;
+}
+}
+
+span{
+color: ${pr => pr.theme.errorColor};
+white-space: ${pr => pr.theme.whiteSpace};
+}
+input[type=email], input[type=password]{
+    border:none;
+  }
+`
+
+const ErrorMessage= styled.p`
+font-family: PT Serif;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+line-height: 15px;
+color:red;
+`
+
 export default Login;

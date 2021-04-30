@@ -97,6 +97,7 @@ const AddPlant = (props) => {
           placeholder="Plant Nickname"
         ></input>
 
+
         <label>
           <h3>Location</h3>
         </label>
