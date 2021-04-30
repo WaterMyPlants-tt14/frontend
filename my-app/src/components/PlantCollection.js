@@ -16,14 +16,6 @@ const Container = styled.div`
   justify-content: space-between;
   padding: 40px;
 
-  & h3 {
-    font-family: PT Serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 24px;
-    color: green;
-  }
   & img {
     object-fit: cover;
     width: 100%;
