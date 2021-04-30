@@ -15,12 +15,14 @@ import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <div>
-      <Route exact path="/" component={Login} />
+
+      <Route exact path="/" component={SignUp} />
+      <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
+
       <ProtectedRoute path="/editprofile" component={EditProfile} />
       <ProtectedRoute path="/profile" component={Profile} />
-
-      <ProtectedRoute path="/home" component={Home} />
+      <ProtectedRoute path="/home" compoennt={Home} />
       <ProtectedRoute path="/collection" component={PlantCollection} />
 
       <ProtectedRoute path="/addplant" component={SpeciesList} />

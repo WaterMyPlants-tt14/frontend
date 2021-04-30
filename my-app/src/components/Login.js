@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import LoginSchema from "./LoginSchema";
 import axios from "axios";
+import SignInNavBar from "./SignInNavBar";
 
 const initialFormValues = {
   email: "",
@@ -67,6 +68,7 @@ const Login = (props) => {
 
   return (
     <StyledLogin>
+      <SignInNavBar />
       <StyledLoginForm className="loginformcontainer" onSubmit={submitForm}>
         <h2>Login</h2>
         <div>
