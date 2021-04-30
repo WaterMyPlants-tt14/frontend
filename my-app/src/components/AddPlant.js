@@ -119,13 +119,13 @@ const AddPlant = (props) => {
         {formErrors.plant_location ? (
           <ErrorMessage>{formErrors.plant_location} </ErrorMessage>
         ) : null}
-        <input
+        <Input
           type="text"
           name="plant_location"
           value={formValues.plant_location}
           onChange={changeHandler}
           placeholder="Plant Location"
-        ></input>
+        ></Input>
 
         <label>
           <h3>Start Watering</h3>
@@ -150,13 +150,14 @@ const AddPlant = (props) => {
         <label>
           <h3>Notes</h3>
         </label>
-        <input
+        <Input
           type="text"
           name="notes"
           value={formValues.notes}
           onChange={changeHandler}
           placeholder="Notes..."
-        ></input>
+        ></Input>
+        <br />
         <button>Add Plant</button>
       </form>
     </AddPlantContainer>
