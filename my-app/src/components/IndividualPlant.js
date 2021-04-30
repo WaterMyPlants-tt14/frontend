@@ -60,6 +60,21 @@ const IndividualPlant = (props) => {
     const abracadabra = () => {
         setEdit(!edit);
     };
+    const waterDay = () => {
+        const daysOfWeek = {
+            1: "Sunday",
+            2: "Monday",
+            3: "Tuesday",
+            4: "Wednesday",
+            5: "Thursday",
+            6: "Friday",
+            7: "Saturday"
+        }
+        return(
+            daysOfWeek[plant.water_day]
+        )
+    }
+    
 
     return (
         <CardContainer>
@@ -73,7 +88,7 @@ const IndividualPlant = (props) => {
                 <h5>{plant.plant_scientific_name}</h5>
 
                 <h3>Watering Schedule</h3>
-                <p>{plant.water_schedule} {plant.water_day}</p>
+                <p>{plant.water_schedule} {waterDay()}</p>
 
                 <h3>Location</h3>
                 <p>{plant.plant_location}</p>
