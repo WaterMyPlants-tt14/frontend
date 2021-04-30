@@ -3,10 +3,15 @@ import '../App.css'
 import styled from 'styled-components'
 import EditPlant from './EditPlant'
 
-const Card = styled.div `
+const CardContainer = styled.div `
 width: 270px;
 height: 550px;
 box-shadow: 0px 30px 60px -40px rgba(130, 70, 0, 0.5);
+`
+
+const PlantEditContainer = styled.div`
+    width: 270px;
+    height: 411px;
 
 
 & h2{
@@ -49,15 +54,16 @@ box-shadow: 0px 30px 60px -40px rgba(130, 70, 0, 0.5);
 `
 
 const IndividualPlant = (props) => {
-    const {plant, setPlants, setTakeMeBack, takeMeBack} = props
     const [edit, setEdit] = useState(false)
+    const {plant, setPlants, setTakeMeBack, takeMeBack} = props
 
     const abracadabra = () => {
         setEdit(!edit);
     };
 
     return (
-        <Card>
+        <CardContainer>
+            <PlantEditContainer onClick={() => setEdit(!edit)}>
             <div className='imgContainer'>
                 <img src={plant.plant_image} alt='plant'/>
             </div>
@@ -80,7 +86,8 @@ const IndividualPlant = (props) => {
 
             </div>
                 {edit && <EditPlant plant={plant} abracadabra={abracadabra} setPlants={setPlants} setTakeMeBack={setTakeMeBack} takeMeBack={takeMeBack}></EditPlant>}
-        </Card>
+            </PlantEditContainer>
+        </CardContainer>
     )
 }
 export default IndividualPlant

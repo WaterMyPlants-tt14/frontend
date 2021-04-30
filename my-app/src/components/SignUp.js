@@ -2,23 +2,22 @@ import * as yup from "yup";
 import React, { useEffect, useState } from "react";
 import SignUpSchema from "./SignUpSchema";
 import { useHistory } from "react-router-dom";
-import axios from 'axios'
-import styled from 'styled-components'
+import axios from "axios";
+import styled from "styled-components";
 const initialFormValues = {
   name: "",
   email: "",
   password: "",
   confirmPassword: "",
-  
-  phone:"",
+
+  phone: "",
 };
 const initialFormErrors = {
-  
   name: "",
   email: "",
   password: "",
   confirmPassword: "",
-  number:"",
+  number: "",
 };
 const SignUp = () => {
   const history = useHistory();
@@ -28,30 +27,28 @@ const SignUp = () => {
 
   const { push } = useHistory()
 
+  useEffect(() => {
+    SignUpSchema.isValid(formValues).then((valid) => {
+      setDisabled(!valid);
+    });
+  }, [formValues]);
 
-  useEffect(() => {SignUpSchema.isValid(formValues).then((valid) => {
-    setDisabled(!valid)
-  })
-
-}, [formValues])
-
-const handleChanges = e => {
-  yup.reach(SignUpSchema, e.target.name)
-    .validate(e.target.value)
-    .then(() => {
-      setFormErrors({
-        ...formErrors,
-        [e.target.name]: ''
-
+  const handleChanges = (e) => {
+    yup
+      .reach(SignUpSchema, e.target.name)
+      .validate(e.target.value)
+      .then(() => {
+        setFormErrors({
+          ...formErrors,
+          [e.target.name]: "",
+        });
       })
-    })
-    .catch(err => {
-      setFormErrors({
-        ...formErrors,
-        [e.target.name]: err.errors[0]
-      })
-
-    })
+      .catch((err) => {
+        setFormErrors({
+          ...formErrors,
+          [e.target.name]: err.errors[0],
+        });
+      });
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value
@@ -191,14 +188,14 @@ return (
     </StyledSignUpForm>
     </div>
   );
-}
+};
 const StyledSignUpForm = styled.form`
   position: absolute;
   width: 570px;
   height: 589px;
   left: 435px;
   top: 265px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 30px 60px -40px rgba(130, 70, 0, 0.5);
   padding-left: 20px;
 
