@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import LoginSchema from "./LoginSchema";
 import axios from "axios";
+import SignInNavBar from "./SignInNavBar";
 
 const initialFormValues = {
   email: "",
@@ -67,6 +68,7 @@ const Login = (props) => {
 
   return (
     <StyledLogin>
+      <SignInNavBar />
       <StyledLoginForm className="loginformcontainer" onSubmit={submitForm}>
         <h2>Login</h2>
         <div>
@@ -208,9 +210,9 @@ const ErrorMessage = styled.p`
   font-weight: bold;
   font-size: 17px;
   line-height: 23px;
-  color: #224229;
+  color: red;
   border-bottom: 3px solid green;
-}
+
 button{
 width: 232px;
 height: 54px;
@@ -276,5 +278,8 @@ input[type=email], input[type=password]{
   }
 `
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f2a1aff229a009def65553cb7436a6b774bd2f4e
 export default Login;

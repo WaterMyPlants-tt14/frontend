@@ -18,19 +18,34 @@ const AddPlantContainer = styled.div`
   width: 275px;
   height: 100%;
   padding: 20px;
-`;
+`
+const Input = styled.input`
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid green;
+  &:focus {
+    outline: none;
+  }
+  &:placeholder {
+    color: lightgray;
+  }
+`
+
 const initialFormValues = {
   plant_nickname: "",
   plant_location: "",
   water_day: 0,
   notes: "",
 };
+
 const initialFormErrors = {
   plant_nickname: "",
   plant_location: "",
   water_day: 0,
   notes: "",
 };
+
 const AddPlant = (props) => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const { species_id } = props;
@@ -89,13 +104,13 @@ const AddPlant = (props) => {
         <label>
           <h3>Nickname</h3>
         </label>
-        <input
+        <Input
           type="text"
           name="plant_nickname"
           value={formValues.plant_nickname}
           onChange={changeHandler}
           placeholder="Plant Nickname"
-        ></input>
+        ></Input>
 
 
         <label>
@@ -104,13 +119,13 @@ const AddPlant = (props) => {
         {formErrors.plant_location ? (
           <ErrorMessage>{formErrors.plant_location} </ErrorMessage>
         ) : null}
-        <input
+        <Input
           type="text"
           name="plant_location"
           value={formValues.plant_location}
           onChange={changeHandler}
           placeholder="Plant Location"
-        ></input>
+        ></Input>
 
         <label>
           <h3>Start Watering</h3>
@@ -135,13 +150,14 @@ const AddPlant = (props) => {
         <label>
           <h3>Notes</h3>
         </label>
-        <input
+        <Input
           type="text"
           name="notes"
           value={formValues.notes}
           onChange={changeHandler}
           placeholder="Notes..."
-        ></input>
+        ></Input>
+        <br />
         <button>Add Plant</button>
       </form>
     </AddPlantContainer>

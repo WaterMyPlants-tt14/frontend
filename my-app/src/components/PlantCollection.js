@@ -5,6 +5,7 @@ import IndividualPlant from "./IndividualPlant";
 import styled from "styled-components";
 import "../App.css";
 import { axiosWithAuth } from "../auth/axiosWithAuth";
+import NavBar from "./NavBar";
 
 const Container = styled.div`
   display: flex;
@@ -16,14 +17,6 @@ const Container = styled.div`
   justify-content: space-between;
   padding: 40px;
 
-  & h3 {
-    font-family: PT Serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 24px;
-    color: green;
-  }
   & img {
     object-fit: cover;
     width: 100%;
@@ -82,6 +75,7 @@ const PlantCollection = () => {
 
   return (
     <div className="plants-container">
+      <NavBar />
       {plants.length === 0 ? (
         <NoPlants />
       ) : (
