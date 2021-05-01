@@ -74,11 +74,11 @@ const Profile = () => {
     axios.get(`https://water-my-plants-tt14.herokuapp.com/api/users`)
         .then(res => {
             setInfo(res.data);
+            
         })
         .catch((error) => {
           console.log(error)
         });
-
 
     return (
         <div>

@@ -276,13 +276,5 @@ input[type=email], input[type=password]{
   }
 `
 
-const ErrorMessage= styled.p`
-font-family: PT Serif;
-font-style: normal;
-font-weight: normal;
-font-size: 11px;
-line-height: 15px;
-color:red;
-`
 
 export default Login;

@@ -1,10 +1,11 @@
 import * as yup from "yup";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import EditProfileSchema from "./EditProfileSchema";
 import axios from 'axios'
 import NavBar from "./NavBar";
+import { axiosWithAuth } from "../auth/axiosWithAuth";
 
 
 const initialFormValues = {
@@ -79,16 +80,19 @@ const EditProfile = (props) => {
   const [profileValues, setProfileValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
 
-  axios
+
+  useEffect(() => {
+  axiosWithAuth()
     .get(`https://water-my-plants-tt14.herokuapp.com/api/users`)
     .then((res) => {
-      const password = res.data.password;
-      console.log(password);
+      setProfileValues({...profileValues, email: res.data.email})
+      console.log(res.data)
     })
     .catch((error) => {
       console.log(error);
     });
-
+  }, [])
+  
   const handleChanges = (e) => {
     yup
       .reach(EditProfileSchema, e.target.name)
@@ -112,20 +116,20 @@ const EditProfile = (props) => {
   };
   const submitForm = (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "https://water-my-plants-tt14.herokuapp.com/api/users",
-        profileValues
+    axiosWithAuth()
+      .put(
+        `https://water-my-plants-tt14.herokuapp.com/api/users`,
+        profileValues.email,
+        profileValues.password
       )
       .then((res) => {
-        console.log("resp", res, res.data);
-        // localStorage.setItem("token", res.data.token)
-        history.push("/");
+        history.push("/profile");
       })
       .catch((error) => console.log({ error }));
   };
 
   console.log(profileValues);
+  console.log(profileValues.email)
 
 
 return(
